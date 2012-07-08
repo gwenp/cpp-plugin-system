@@ -40,29 +40,29 @@ PATH: /usr/bin/core_perl
 ## Core tests. ##
 ## ----------- ##
 
-configure:1827: checking for a BSD-compatible install
-configure:1895: result: /usr/bin/install -c
-configure:1906: checking whether build environment is sane
-configure:1961: result: yes
-configure:2112: checking for a thread-safe mkdir -p
-configure:2151: result: /bin/mkdir -p
-configure:2164: checking for gawk
-configure:2180: found /usr/bin/gawk
-configure:2191: result: gawk
-configure:2202: checking whether make sets $(MAKE)
-configure:2224: result: yes
-configure:2359: checking for g++
-configure:2375: found /usr/bin/g++
-configure:2386: result: g++
-configure:2413: checking for C++ compiler version
-configure:2422: g++ --version >&5
+configure:1846: checking for a BSD-compatible install
+configure:1914: result: /usr/bin/install -c
+configure:1925: checking whether build environment is sane
+configure:1980: result: yes
+configure:2131: checking for a thread-safe mkdir -p
+configure:2170: result: /bin/mkdir -p
+configure:2183: checking for gawk
+configure:2199: found /usr/bin/gawk
+configure:2210: result: gawk
+configure:2221: checking whether make sets $(MAKE)
+configure:2243: result: yes
+configure:2378: checking for g++
+configure:2394: found /usr/bin/g++
+configure:2405: result: g++
+configure:2432: checking for C++ compiler version
+configure:2441: g++ --version >&5
 g++ (GCC) 4.7.0 20120505 (prerelease)
 Copyright (C) 2012 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-configure:2433: $? = 0
-configure:2422: g++ -v >&5
+configure:2452: $? = 0
+configure:2441: g++ -v >&5
 Using built-in specs.
 COLLECT_GCC=g++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/lto-wrapper
@@ -70,52 +70,63 @@ Target: x86_64-unknown-linux-gnu
 Configured with: /build/src/gcc-4.7-20120505/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --enable-libstdcxx-time --enable-gnu-unique-object --enable-linker-build-id --with-ppl --enable-cloog-backend=isl --enable-lto --enable-gold --enable-ld=default --enable-plugin --with-plugin-ld=ld.gold --with-linker-hash-style=gnu --disable-multilib --disable-libssp --disable-build-with-cxx --disable-build-poststage1-with-cxx --enable-checking=release
 Thread model: posix
 gcc version 4.7.0 20120505 (prerelease) (GCC) 
-configure:2433: $? = 0
-configure:2422: g++ -V >&5
+configure:2452: $? = 0
+configure:2441: g++ -V >&5
 g++: error: unrecognized command line option '-V'
 g++: fatal error: no input files
 compilation terminated.
-configure:2433: $? = 1
-configure:2422: g++ -qversion >&5
+configure:2452: $? = 1
+configure:2441: g++ -qversion >&5
 g++: error: unrecognized command line option '-qversion'
 g++: fatal error: no input files
 compilation terminated.
-configure:2433: $? = 1
-configure:2453: checking whether the C++ compiler works
-configure:2475: g++    conftest.cpp  >&5
-configure:2479: $? = 0
-configure:2527: result: yes
-configure:2530: checking for C++ compiler default output file name
-configure:2532: result: a.out
-configure:2538: checking for suffix of executables
-configure:2545: g++ -o conftest    conftest.cpp  >&5
-configure:2549: $? = 0
-configure:2571: result: 
-configure:2593: checking whether we are cross compiling
-configure:2601: g++ -o conftest    conftest.cpp  >&5
-configure:2605: $? = 0
-configure:2612: ./conftest
-configure:2616: $? = 0
-configure:2631: result: no
-configure:2636: checking for suffix of object files
-configure:2658: g++ -c   conftest.cpp >&5
-configure:2662: $? = 0
-configure:2683: result: o
-configure:2687: checking whether we are using the GNU C++ compiler
-configure:2706: g++ -c   conftest.cpp >&5
-configure:2706: $? = 0
-configure:2715: result: yes
-configure:2724: checking whether g++ accepts -g
-configure:2744: g++ -c -g  conftest.cpp >&5
-configure:2744: $? = 0
-configure:2785: result: yes
-configure:2819: checking for style of include used by make
-configure:2847: result: GNU
-configure:2873: checking dependency style of g++
-configure:2984: result: gcc3
-configure:3119: checking that generated files are newer than configure
-configure:3125: result: done
-configure:3148: creating ./config.status
+configure:2452: $? = 1
+configure:2472: checking whether the C++ compiler works
+configure:2494: g++    conftest.cpp  >&5
+configure:2498: $? = 0
+configure:2546: result: yes
+configure:2549: checking for C++ compiler default output file name
+configure:2551: result: a.out
+configure:2557: checking for suffix of executables
+configure:2564: g++ -o conftest    conftest.cpp  >&5
+configure:2568: $? = 0
+configure:2590: result: 
+configure:2612: checking whether we are cross compiling
+configure:2620: g++ -o conftest    conftest.cpp  >&5
+configure:2624: $? = 0
+configure:2631: ./conftest
+configure:2635: $? = 0
+configure:2650: result: no
+configure:2655: checking for suffix of object files
+configure:2677: g++ -c   conftest.cpp >&5
+configure:2681: $? = 0
+configure:2702: result: o
+configure:2706: checking whether we are using the GNU C++ compiler
+configure:2725: g++ -c   conftest.cpp >&5
+configure:2725: $? = 0
+configure:2734: result: yes
+configure:2743: checking whether g++ accepts -g
+configure:2763: g++ -c -g  conftest.cpp >&5
+configure:2763: $? = 0
+configure:2804: result: yes
+configure:2838: checking for style of include used by make
+configure:2866: result: GNU
+configure:2892: checking dependency style of g++
+configure:3003: result: gcc3
+configure:3074: checking for pkg-config
+configure:3092: found /usr/bin/pkg-config
+configure:3104: result: /usr/bin/pkg-config
+configure:3129: checking pkg-config is at least version 0.9.0
+configure:3132: result: yes
+configure:3142: checking for LIBSIGC
+configure:3149: $PKG_CONFIG --exists --print-errors "sigc++-2.0"
+configure:3152: $? = 0
+configure:3166: $PKG_CONFIG --exists --print-errors "sigc++-2.0"
+configure:3169: $? = 0
+configure:3227: result: yes
+configure:3363: checking that generated files are newer than configure
+configure:3369: result: done
+configure:3392: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -132,9 +143,10 @@ generated by GNU Autoconf 2.69.  Invocation command line was
 
 on myhost
 
-config.status:833: creating Makefile
-config.status:833: creating config.h
-config.status:1062: executing depfiles commands
+config.status:838: creating Makefile
+config.status:838: creating config.h
+config.status:1019: config.h is unchanged
+config.status:1067: executing depfiles commands
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -151,8 +163,18 @@ ac_cv_env_CXX_set=
 ac_cv_env_CXX_value=
 ac_cv_env_LDFLAGS_set=
 ac_cv_env_LDFLAGS_value=
+ac_cv_env_LIBSIGC_CFLAGS_set=
+ac_cv_env_LIBSIGC_CFLAGS_value=
+ac_cv_env_LIBSIGC_LIBS_set=
+ac_cv_env_LIBSIGC_LIBS_value=
 ac_cv_env_LIBS_set=
 ac_cv_env_LIBS_value=
+ac_cv_env_PKG_CONFIG_LIBDIR_set=
+ac_cv_env_PKG_CONFIG_LIBDIR_value=
+ac_cv_env_PKG_CONFIG_PATH_set=
+ac_cv_env_PKG_CONFIG_PATH_value=
+ac_cv_env_PKG_CONFIG_set=
+ac_cv_env_PKG_CONFIG_value=
 ac_cv_env_build_alias_set=
 ac_cv_env_build_alias_value=
 ac_cv_env_host_alias_set=
@@ -160,6 +182,7 @@ ac_cv_env_host_alias_value=
 ac_cv_env_target_alias_set=
 ac_cv_env_target_alias_value=
 ac_cv_objext=o
+ac_cv_path_ac_pt_PKG_CONFIG=/usr/bin/pkg-config
 ac_cv_path_install='/usr/bin/install -c'
 ac_cv_path_mkdir=/bin/mkdir
 ac_cv_prog_AWK=gawk
@@ -167,6 +190,8 @@ ac_cv_prog_ac_ct_CXX=g++
 ac_cv_prog_cxx_g=yes
 ac_cv_prog_make_make_set=yes
 am_cv_CXX_dependencies_compiler_type=gcc3
+pkg_cv_LIBSIGC_CFLAGS='-I/usr/include/sigc++-2.0 -I/usr/lib/sigc++-2.0/include  '
+pkg_cv_LIBSIGC_LIBS='-lsigc-2.0  '
 
 ## ----------------- ##
 ## Output variables. ##
@@ -199,6 +224,8 @@ INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
 LDFLAGS=''
 LIBOBJS=''
 LIBS=''
+LIBSIGC_CFLAGS='-I/usr/include/sigc++-2.0 -I/usr/lib/sigc++-2.0/include  '
+LIBSIGC_LIBS='-lsigc-2.0  '
 LTLIBOBJS=''
 MAKEINFO='${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run makeinfo'
 MKDIR_P='/bin/mkdir -p'
@@ -211,6 +238,9 @@ PACKAGE_TARNAME='full-package-name'
 PACKAGE_URL=''
 PACKAGE_VERSION='VERSION'
 PATH_SEPARATOR=':'
+PKG_CONFIG='/usr/bin/pkg-config'
+PKG_CONFIG_LIBDIR=''
+PKG_CONFIG_PATH=''
 SET_MAKE=''
 SHELL='/bin/sh'
 STRIP=''
@@ -268,21 +298,3 @@ target_alias=''
 #define PACKAGE_URL ""
 
 configure: exit 0
-
-## ---------------------- ##
-## Running config.status. ##
-## ---------------------- ##
-
-This file was extended by FULL-PACKAGE-NAME config.status VERSION, which was
-generated by GNU Autoconf 2.69.  Invocation command line was
-
-  CONFIG_FILES    = 
-  CONFIG_HEADERS  = 
-  CONFIG_LINKS    = 
-  CONFIG_COMMANDS = 
-  $ ./config.status config.h
-
-on myhost
-
-config.status:833: creating config.h
-config.status:1014: config.h is unchanged

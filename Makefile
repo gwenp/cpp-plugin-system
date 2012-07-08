@@ -67,9 +67,12 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_cppPlugins_OBJECTS = main.$(OBJEXT)
+am_cppPlugins_OBJECTS = Application.$(OBJEXT) \
+	ConcretePluginManager.$(OBJEXT) main.$(OBJEXT) \
+	CommunicativeObject.$(OBJEXT) Plugin.$(OBJEXT)
 cppPlugins_OBJECTS = $(am_cppPlugins_OBJECTS)
-cppPlugins_LDADD = $(LDADD)
+am__DEPENDENCIES_1 =
+cppPlugins_DEPENDENCIES = $(am__DEPENDENCIES_1)
 DEFAULT_INCLUDES = -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -132,6 +135,8 @@ INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LDFLAGS = 
 LIBOBJS = 
 LIBS = 
+LIBSIGC_CFLAGS = -I/usr/include/sigc++-2.0 -I/usr/lib/sigc++-2.0/include  
+LIBSIGC_LIBS = -lsigc-2.0  
 LTLIBOBJS = 
 MAKEINFO = ${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
@@ -144,6 +149,9 @@ PACKAGE_TARNAME = full-package-name
 PACKAGE_URL = 
 PACKAGE_VERSION = VERSION
 PATH_SEPARATOR = :
+PKG_CONFIG = /usr/bin/pkg-config
+PKG_CONFIG_LIBDIR = 
+PKG_CONFIG_PATH = 
 SET_MAKE = 
 SHELL = /bin/sh
 STRIP = 
@@ -190,7 +198,16 @@ target_alias =
 top_build_prefix = 
 top_builddir = .
 top_srcdir = .
-cppPlugins_SOURCES = src/main.cpp
+INCLUDES = -I/usr/include/sigc++-2.0/
+cppPlugins_SOURCES = \
+					src/core/Application.cpp \
+					src/core/ConcretePluginManager.cpp \
+                                        src/core/main/main.cpp \
+					src/api/CommunicativeObject.cpp \
+					src/api/Plugin.cpp 
+
+AM_CPPFLAGS = $(LIBSIGC_CFLAGS) -fPIC -g
+cppPlugins_LDADD = $(LIBSIGC_LIBS) -ldl
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -295,6 +312,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/Application.Po
+include ./$(DEPDIR)/CommunicativeObject.Po
+include ./$(DEPDIR)/ConcretePluginManager.Po
+include ./$(DEPDIR)/Plugin.Po
 include ./$(DEPDIR)/main.Po
 
 .cpp.o:
@@ -311,19 +332,75 @@ include ./$(DEPDIR)/main.Po
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXXCOMPILE) -c -o $@ `$(CYGPATH_W) '$<'`
 
-main.o: src/main.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.o -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.o `test -f 'src/main.cpp' || echo '$(srcdir)/'`src/main.cpp
-	$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
-#	source='src/main.cpp' object='main.o' libtool=no \
+Application.o: src/core/Application.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT Application.o -MD -MP -MF $(DEPDIR)/Application.Tpo -c -o Application.o `test -f 'src/core/Application.cpp' || echo '$(srcdir)/'`src/core/Application.cpp
+	$(am__mv) $(DEPDIR)/Application.Tpo $(DEPDIR)/Application.Po
+#	source='src/core/Application.cpp' object='Application.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.o `test -f 'src/main.cpp' || echo '$(srcdir)/'`src/main.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o Application.o `test -f 'src/core/Application.cpp' || echo '$(srcdir)/'`src/core/Application.cpp
 
-main.obj: src/main.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.obj -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.obj `if test -f 'src/main.cpp'; then $(CYGPATH_W) 'src/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/main.cpp'; fi`
-	$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
-#	source='src/main.cpp' object='main.obj' libtool=no \
+Application.obj: src/core/Application.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT Application.obj -MD -MP -MF $(DEPDIR)/Application.Tpo -c -o Application.obj `if test -f 'src/core/Application.cpp'; then $(CYGPATH_W) 'src/core/Application.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/Application.cpp'; fi`
+	$(am__mv) $(DEPDIR)/Application.Tpo $(DEPDIR)/Application.Po
+#	source='src/core/Application.cpp' object='Application.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.obj `if test -f 'src/main.cpp'; then $(CYGPATH_W) 'src/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/main.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o Application.obj `if test -f 'src/core/Application.cpp'; then $(CYGPATH_W) 'src/core/Application.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/Application.cpp'; fi`
+
+ConcretePluginManager.o: src/core/ConcretePluginManager.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT ConcretePluginManager.o -MD -MP -MF $(DEPDIR)/ConcretePluginManager.Tpo -c -o ConcretePluginManager.o `test -f 'src/core/ConcretePluginManager.cpp' || echo '$(srcdir)/'`src/core/ConcretePluginManager.cpp
+	$(am__mv) $(DEPDIR)/ConcretePluginManager.Tpo $(DEPDIR)/ConcretePluginManager.Po
+#	source='src/core/ConcretePluginManager.cpp' object='ConcretePluginManager.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o ConcretePluginManager.o `test -f 'src/core/ConcretePluginManager.cpp' || echo '$(srcdir)/'`src/core/ConcretePluginManager.cpp
+
+ConcretePluginManager.obj: src/core/ConcretePluginManager.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT ConcretePluginManager.obj -MD -MP -MF $(DEPDIR)/ConcretePluginManager.Tpo -c -o ConcretePluginManager.obj `if test -f 'src/core/ConcretePluginManager.cpp'; then $(CYGPATH_W) 'src/core/ConcretePluginManager.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/ConcretePluginManager.cpp'; fi`
+	$(am__mv) $(DEPDIR)/ConcretePluginManager.Tpo $(DEPDIR)/ConcretePluginManager.Po
+#	source='src/core/ConcretePluginManager.cpp' object='ConcretePluginManager.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o ConcretePluginManager.obj `if test -f 'src/core/ConcretePluginManager.cpp'; then $(CYGPATH_W) 'src/core/ConcretePluginManager.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/ConcretePluginManager.cpp'; fi`
+
+main.o: src/core/main/main.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.o -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.o `test -f 'src/core/main/main.cpp' || echo '$(srcdir)/'`src/core/main/main.cpp
+	$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
+#	source='src/core/main/main.cpp' object='main.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.o `test -f 'src/core/main/main.cpp' || echo '$(srcdir)/'`src/core/main/main.cpp
+
+main.obj: src/core/main/main.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.obj -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.obj `if test -f 'src/core/main/main.cpp'; then $(CYGPATH_W) 'src/core/main/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/main/main.cpp'; fi`
+	$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
+#	source='src/core/main/main.cpp' object='main.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.obj `if test -f 'src/core/main/main.cpp'; then $(CYGPATH_W) 'src/core/main/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/main/main.cpp'; fi`
+
+CommunicativeObject.o: src/api/CommunicativeObject.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CommunicativeObject.o -MD -MP -MF $(DEPDIR)/CommunicativeObject.Tpo -c -o CommunicativeObject.o `test -f 'src/api/CommunicativeObject.cpp' || echo '$(srcdir)/'`src/api/CommunicativeObject.cpp
+	$(am__mv) $(DEPDIR)/CommunicativeObject.Tpo $(DEPDIR)/CommunicativeObject.Po
+#	source='src/api/CommunicativeObject.cpp' object='CommunicativeObject.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o CommunicativeObject.o `test -f 'src/api/CommunicativeObject.cpp' || echo '$(srcdir)/'`src/api/CommunicativeObject.cpp
+
+CommunicativeObject.obj: src/api/CommunicativeObject.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CommunicativeObject.obj -MD -MP -MF $(DEPDIR)/CommunicativeObject.Tpo -c -o CommunicativeObject.obj `if test -f 'src/api/CommunicativeObject.cpp'; then $(CYGPATH_W) 'src/api/CommunicativeObject.cpp'; else $(CYGPATH_W) '$(srcdir)/src/api/CommunicativeObject.cpp'; fi`
+	$(am__mv) $(DEPDIR)/CommunicativeObject.Tpo $(DEPDIR)/CommunicativeObject.Po
+#	source='src/api/CommunicativeObject.cpp' object='CommunicativeObject.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o CommunicativeObject.obj `if test -f 'src/api/CommunicativeObject.cpp'; then $(CYGPATH_W) 'src/api/CommunicativeObject.cpp'; else $(CYGPATH_W) '$(srcdir)/src/api/CommunicativeObject.cpp'; fi`
+
+Plugin.o: src/api/Plugin.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT Plugin.o -MD -MP -MF $(DEPDIR)/Plugin.Tpo -c -o Plugin.o `test -f 'src/api/Plugin.cpp' || echo '$(srcdir)/'`src/api/Plugin.cpp
+	$(am__mv) $(DEPDIR)/Plugin.Tpo $(DEPDIR)/Plugin.Po
+#	source='src/api/Plugin.cpp' object='Plugin.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o Plugin.o `test -f 'src/api/Plugin.cpp' || echo '$(srcdir)/'`src/api/Plugin.cpp
+
+Plugin.obj: src/api/Plugin.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT Plugin.obj -MD -MP -MF $(DEPDIR)/Plugin.Tpo -c -o Plugin.obj `if test -f 'src/api/Plugin.cpp'; then $(CYGPATH_W) 'src/api/Plugin.cpp'; else $(CYGPATH_W) '$(srcdir)/src/api/Plugin.cpp'; fi`
+	$(am__mv) $(DEPDIR)/Plugin.Tpo $(DEPDIR)/Plugin.Po
+#	source='src/api/Plugin.cpp' object='Plugin.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o Plugin.obj `if test -f 'src/api/Plugin.cpp'; then $(CYGPATH_W) 'src/api/Plugin.cpp'; else $(CYGPATH_W) '$(srcdir)/src/api/Plugin.cpp'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \
