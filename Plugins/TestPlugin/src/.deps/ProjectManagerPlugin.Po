@@ -1,4 +1,7 @@
-main.o: src/core/main.cpp src/core/Application.hpp \
+src/ProjectManagerPlugin.o: src/ProjectManagerPlugin.cpp \
+ src/ProjectManagerPlugin.hpp \
+ ../../src/api/Interfaces/IProjectManagerPlugin.hpp \
+ ../../src/api/Interfaces/../Plugin.hpp \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/string \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/x86_64-unknown-linux-gnu/bits/c++config.h \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/x86_64-unknown-linux-gnu/bits/os_defines.h \
@@ -58,10 +61,6 @@ main.o: src/core/main.cpp src/core/Application.hpp \
  /usr/include/bits/setjmp.h \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/x86_64-unknown-linux-gnu/bits/atomic_word.h \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/basic_string.tcc \
- /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/map \
- /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_tree.h \
- /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_map.h \
- /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_multimap.h \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/iostream \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/ostream \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/ios \
@@ -82,9 +81,49 @@ main.o: src/core/main.cpp src/core/Application.hpp \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/ostream.tcc \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/istream \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/istream.tcc \
- src/core/ConcretePluginManager.hpp src/core/../api/PluginManager.hpp \
- src/core/../api/CommunicativeObject.hpp src/core/../api/Plugin.hpp \
- /usr/include/dlfcn.h /usr/include/bits/dlfcn.h \
+ ../../src/api/Interfaces/../CommunicativeObject.hpp \
+ ../../src/api/Interfaces/../PluginMessage.hpp \
+ ../../src/api/Interfaces/ProjectFile/IProjectFileElement.hpp \
+ ../../src/api/Interfaces/ProjectFile/IRessource.hpp \
+ /usr/include/sigc++-2.0/sigc++/sigc++.h \
+ /usr/include/sigc++-2.0/sigc++/signal.h \
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/list \
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_list.h \
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/list.tcc \
+ /usr/include/sigc++-2.0/sigc++/signal_base.h \
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/cstddef \
+ /usr/lib/sigc++-2.0/include/sigc++config.h \
+ /usr/include/sigc++-2.0/sigc++/type_traits.h \
+ /usr/include/sigc++-2.0/sigc++/trackable.h \
+ /usr/include/sigc++-2.0/sigc++/functors/slot.h \
+ /usr/include/sigc++-2.0/sigc++/visit_each.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/adaptor_trait.h \
+ /usr/include/sigc++-2.0/sigc++/functors/functor_trait.h \
+ /usr/include/sigc++-2.0/sigc++/functors/ptr_fun.h \
+ /usr/include/sigc++-2.0/sigc++/functors/mem_fun.h \
+ /usr/include/sigc++-2.0/sigc++/limit_reference.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/deduce_result_type.h \
+ /usr/include/sigc++-2.0/sigc++/functors/slot_base.h \
+ /usr/include/sigc++-2.0/sigc++/connection.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/adaptors.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/bind.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/bound_argument.h \
+ /usr/include/sigc++-2.0/sigc++/reference_wrapper.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/bind_return.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/hide.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/retype_return.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/retype.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/compose.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/exception_catch.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/lambda/lambda.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/lambda/base.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/lambda/select.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/lambda/operator.h \
+ /usr/include/sigc++-2.0/sigc++/adaptors/lambda/group.h \
+ /usr/include/sigc++-2.0/sigc++/functors/functors.h \
+ ../../src/api/PluginManager.hpp ../../src/api/CommunicativeObject.hpp \
+ ../../src/api/Plugin.hpp ../../src/api/PluginMessage.hpp \
+ ../../src/api/Config.hpp \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/vector \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_construct.h \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/ext/alloc_traits.h \
@@ -92,16 +131,15 @@ main.o: src/core/main.cpp src/core/Application.hpp \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_vector.h \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_bvector.h \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/vector.tcc \
+ /usr/include/dlfcn.h /usr/include/bits/dlfcn.h \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/utility \
- /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_relops.h \
- src/core/../api/CommunicativeObject.hpp \
- src/core/../api/utility/Terminal_colors.hpp src/core/../api/Plugin.hpp \
- src/core/../api/IApplication.hpp src/core/../api/PluginManager.hpp \
- src/core/../api/Interfaces/ITestPlugin.hpp \
- src/core/../api/Interfaces/../Plugin.hpp \
- src/core/../api/Interfaces/../IApplication.hpp
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_relops.h
 
-src/core/Application.hpp:
+src/ProjectManagerPlugin.hpp:
+
+../../src/api/Interfaces/IProjectManagerPlugin.hpp:
+
+../../src/api/Interfaces/../Plugin.hpp:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/string:
 
@@ -243,14 +281,6 @@ src/core/Application.hpp:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/basic_string.tcc:
 
-/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/map:
-
-/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_tree.h:
-
-/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_map.h:
-
-/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_multimap.h:
-
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/iostream:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/ostream:
@@ -291,17 +321,95 @@ src/core/Application.hpp:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/istream.tcc:
 
-src/core/ConcretePluginManager.hpp:
+../../src/api/Interfaces/../CommunicativeObject.hpp:
 
-src/core/../api/PluginManager.hpp:
+../../src/api/Interfaces/../PluginMessage.hpp:
 
-src/core/../api/CommunicativeObject.hpp:
+../../src/api/Interfaces/ProjectFile/IProjectFileElement.hpp:
 
-src/core/../api/Plugin.hpp:
+../../src/api/Interfaces/ProjectFile/IRessource.hpp:
 
-/usr/include/dlfcn.h:
+/usr/include/sigc++-2.0/sigc++/sigc++.h:
 
-/usr/include/bits/dlfcn.h:
+/usr/include/sigc++-2.0/sigc++/signal.h:
+
+/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/list:
+
+/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_list.h:
+
+/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/list.tcc:
+
+/usr/include/sigc++-2.0/sigc++/signal_base.h:
+
+/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/cstddef:
+
+/usr/lib/sigc++-2.0/include/sigc++config.h:
+
+/usr/include/sigc++-2.0/sigc++/type_traits.h:
+
+/usr/include/sigc++-2.0/sigc++/trackable.h:
+
+/usr/include/sigc++-2.0/sigc++/functors/slot.h:
+
+/usr/include/sigc++-2.0/sigc++/visit_each.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/adaptor_trait.h:
+
+/usr/include/sigc++-2.0/sigc++/functors/functor_trait.h:
+
+/usr/include/sigc++-2.0/sigc++/functors/ptr_fun.h:
+
+/usr/include/sigc++-2.0/sigc++/functors/mem_fun.h:
+
+/usr/include/sigc++-2.0/sigc++/limit_reference.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/deduce_result_type.h:
+
+/usr/include/sigc++-2.0/sigc++/functors/slot_base.h:
+
+/usr/include/sigc++-2.0/sigc++/connection.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/adaptors.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/bind.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/bound_argument.h:
+
+/usr/include/sigc++-2.0/sigc++/reference_wrapper.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/bind_return.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/hide.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/retype_return.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/retype.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/compose.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/exception_catch.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/lambda/lambda.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/lambda/base.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/lambda/select.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/lambda/operator.h:
+
+/usr/include/sigc++-2.0/sigc++/adaptors/lambda/group.h:
+
+/usr/include/sigc++-2.0/sigc++/functors/functors.h:
+
+../../src/api/PluginManager.hpp:
+
+../../src/api/CommunicativeObject.hpp:
+
+../../src/api/Plugin.hpp:
+
+../../src/api/PluginMessage.hpp:
+
+../../src/api/Config.hpp:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/vector:
 
@@ -317,22 +425,10 @@ src/core/../api/Plugin.hpp:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/vector.tcc:
 
+/usr/include/dlfcn.h:
+
+/usr/include/bits/dlfcn.h:
+
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/utility:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_relops.h:
-
-src/core/../api/CommunicativeObject.hpp:
-
-src/core/../api/utility/Terminal_colors.hpp:
-
-src/core/../api/Plugin.hpp:
-
-src/core/../api/IApplication.hpp:
-
-src/core/../api/PluginManager.hpp:
-
-src/core/../api/Interfaces/ITestPlugin.hpp:
-
-src/core/../api/Interfaces/../Plugin.hpp:
-
-src/core/../api/Interfaces/../IApplication.hpp:

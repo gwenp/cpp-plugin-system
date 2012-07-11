@@ -437,7 +437,7 @@ Copyright (C) 2012 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/gwen/Programmation/cpp-plugin-system'
+ac_pwd='/home/gwen/Programmation/cpp-plugin-system/Plugins/TestPlugin'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -539,7 +539,7 @@ _ASBOX
 #
 # INIT-COMMANDS
 #
-AMDEP_TRUE="" ac_aux_dir="."
+AMDEP_TRUE="" ac_aux_dir="./../.."
 
 
 # Handling of arguments.
@@ -618,15 +618,11 @@ S["am__EXEEXT_FALSE"]=""
 S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=""
 S["LIBOBJS"]=""
-S["subdirs"]=" Plugins/TestPlugin"
 S["EGREP"]="/usr/bin/grep -E"
 S["GREP"]="/usr/bin/grep"
+S["RANLIB"]="ranlib"
 S["CPP"]="gcc -E"
-S["LIBSIGC_LIBS"]="-lsigc-2.0  "
-S["LIBSIGC_CFLAGS"]="-I/usr/include/sigc++-2.0 -I/usr/lib/sigc++-2.0/include  "
-S["PKG_CONFIG_LIBDIR"]=""
-S["PKG_CONFIG_PATH"]=""
-S["PKG_CONFIG"]="/usr/bin/pkg-config"
+S["LN_S"]="ln -s"
 S["am__fastdepCC_FALSE"]="#"
 S["am__fastdepCC_TRUE"]=""
 S["CCDEPMODE"]="depmode=gcc3"
@@ -666,8 +662,8 @@ S["AUTOHEADER"]="${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --r
 S["AUTOMAKE"]="${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --run automake-1.12"
 S["AUTOCONF"]="${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --run autoconf"
 S["ACLOCAL"]="${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --run aclocal-1.12"
-S["VERSION"]="0.1"
-S["PACKAGE"]="cpp-plugin-system"
+S["VERSION"]="1.0"
+S["PACKAGE"]="TestPlugin"
 S["CYGPATH_W"]="echo"
 S["am__isrc"]=""
 S["INSTALL_DATA"]="${INSTALL} -m 644"
@@ -676,7 +672,7 @@ S["INSTALL_PROGRAM"]="${INSTALL}"
 S["target_alias"]=""
 S["host_alias"]=""
 S["build_alias"]=""
-S["LIBS"]="-ldl "
+S["LIBS"]=""
 S["ECHO_T"]=""
 S["ECHO_N"]="-n"
 S["ECHO_C"]=""
@@ -758,7 +754,6 @@ D["PACKAGE_VERSION"]=" \"VERSION\""
 D["PACKAGE_STRING"]=" \"FULL-PACKAGE-NAME VERSION\""
 D["PACKAGE_BUGREPORT"]=" \"BUG-REPORT-ADDRESS\""
 D["PACKAGE_URL"]=" \"\""
-D["HAVE_LIBDL"]=" 1"
 D["STDC_HEADERS"]=" 1"
 D["HAVE_SYS_TYPES_H"]=" 1"
 D["HAVE_SYS_STAT_H"]=" 1"

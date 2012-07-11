@@ -9,6 +9,7 @@
 #include "ConcretePluginManager.hpp"
 
 #include "../api/IApplication.hpp"
+#include "../api/Interfaces/ITestPlugin.hpp"
 
 /** 
 * @class Application

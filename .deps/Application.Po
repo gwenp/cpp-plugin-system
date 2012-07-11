@@ -96,7 +96,10 @@ Application.o: src/core/Application.cpp src/core/Application.hpp \
  /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.0/../../../../include/c++/4.7.0/bits/stl_relops.h \
  src/core/../api/CommunicativeObject.hpp \
  src/core/../api/utility/Terminal_colors.hpp src/core/../api/Plugin.hpp \
- src/core/../api/IApplication.hpp src/core/../api/PluginManager.hpp
+ src/core/../api/IApplication.hpp src/core/../api/PluginManager.hpp \
+ src/core/../api/Interfaces/ITestPlugin.hpp \
+ src/core/../api/Interfaces/../Plugin.hpp \
+ src/core/../api/Interfaces/../IApplication.hpp
 
 src/core/Application.hpp:
 
@@ -327,3 +330,9 @@ src/core/../api/Plugin.hpp:
 src/core/../api/IApplication.hpp:
 
 src/core/../api/PluginManager.hpp:
+
+src/core/../api/Interfaces/ITestPlugin.hpp:
+
+src/core/../api/Interfaces/../Plugin.hpp:
+
+src/core/../api/Interfaces/../IApplication.hpp:

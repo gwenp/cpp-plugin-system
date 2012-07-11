@@ -13,7 +13,10 @@ Application::~Application()
 
 void Application::loadPlugins(int argc, char *argv[])
 {
-	// _pluginManager->loadPlugin("./Plugins/settingsPlugin/settingsPlugin.plg","makePlugin");
-	// ISettingsPlugin* settingsPlugin = (ISettingsPlugin*) _pluginManager->getPluginByName("SettingsPlugin");
+	_pluginManager->loadPlugin("./Plugins/TestPlugin/TestPlugin.plg","makePlugin");
+	ITestPlugin* testPlugin = (ITestPlugin*) _pluginManager->getPluginByName("TestPlugin");
+
+	if(testPlugin != NULL)
+		testPlugin->displayTestInformation();
 }
 

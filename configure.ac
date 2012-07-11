@@ -13,7 +13,6 @@ AC_PROG_CXX
 AC_PROG_CC
 
 # Checks for libraries.
-# FIXME: Replace `main' with a function in `-ldl':
 AC_CHECK_LIB([dl], [dlerror])
 PKG_CHECK_MODULES([LIBSIGC], [sigc++-2.0])
 
@@ -23,6 +22,19 @@ PKG_CHECK_MODULES([LIBSIGC], [sigc++-2.0])
 AC_CHECK_HEADER_STDBOOL
 
 # Checks for library functions.
+
+# Manage plugins build
+AC_ARG_ENABLE([plugins],
+    [AS_HELP_STRING([--disable-plugins], [Compile Core only])],
+    [enable_plugins=$enableval],
+    [enable_plugins=yes])
+if test "x$enable_plugins" = "xyes"; then
+
+	AC_CONFIG_SUBDIRS([ Plugins/TestPlugin])
+    AC_MSG_RESULT( --- Plugin compilation enabled --- )
+else
+	AC_MSG_RESULT( --- Plugin compilation disabled --- )
+fi
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT

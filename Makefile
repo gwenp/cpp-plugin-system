@@ -200,6 +200,7 @@ psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 srcdir = .
+subdirs =  Plugins/TestPlugin
 sysconfdir = ${prefix}/etc
 target_alias = 
 top_build_prefix = 

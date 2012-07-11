@@ -29,7 +29,10 @@ bool ConcretePluginManager::loadPlugin( std::string file, std::string factory_fu
 		p->onLoad();
 
 		if(p != NULL)
+		{
+			_plugins.push_back(p);
 			return true;
+		}
 		else
 			return false;
 }
