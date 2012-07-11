@@ -110,12 +110,16 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run aclocal-1.12
+ACLOCAL = ${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --run aclocal-1.12
 AMTAR = $${TAR-tar}
-AUTOCONF = ${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run automake-1.12
+AUTOCONF = ${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --run automake-1.12
 AWK = gawk
+CC = gcc
+CCDEPMODE = depmode=gcc3
+CFLAGS = -g -O2
+CPP = gcc -E
 CPPFLAGS = 
 CXX = g++
 CXXDEPMODE = depmode=gcc3
@@ -126,7 +130,9 @@ DEPDIR = .deps
 ECHO_C = 
 ECHO_N = -n
 ECHO_T = 
+EGREP = /usr/bin/grep -E
 EXEEXT = 
+GREP = /usr/bin/grep
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
@@ -134,11 +140,11 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LDFLAGS = 
 LIBOBJS = 
-LIBS = 
+LIBS = -ldl 
 LIBSIGC_CFLAGS = -I/usr/include/sigc++-2.0 -I/usr/lib/sigc++-2.0/include  
 LIBSIGC_LIBS = -lsigc-2.0  
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/gwen/Programmation/cpp-plugin-system/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = cpp-plugin-system
@@ -156,10 +162,11 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = 
 VERSION = 0.1
-abs_builddir = /home/gwen/Programmation/cpp/cpp-plugin-system
-abs_srcdir = /home/gwen/Programmation/cpp/cpp-plugin-system
-abs_top_builddir = /home/gwen/Programmation/cpp/cpp-plugin-system
-abs_top_srcdir = /home/gwen/Programmation/cpp/cpp-plugin-system
+abs_builddir = /home/gwen/Programmation/cpp-plugin-system
+abs_srcdir = /home/gwen/Programmation/cpp-plugin-system
+abs_top_builddir = /home/gwen/Programmation/cpp-plugin-system
+abs_top_srcdir = /home/gwen/Programmation/cpp-plugin-system
+ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
 am__leading_dot = .
@@ -178,7 +185,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/install-sh
+install_sh = ${SHELL} /home/gwen/Programmation/cpp-plugin-system/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -199,12 +206,11 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 INCLUDES = -I/usr/include/sigc++-2.0/
-cppPlugins_SOURCES = \
-					src/core/Application.cpp \
-					src/core/ConcretePluginManager.cpp \
-                                        src/core/main/main.cpp \
-					src/api/CommunicativeObject.cpp \
-					src/api/Plugin.cpp 
+cppPlugins_SOURCES = src/core/Application.cpp \
+						src/core/ConcretePluginManager.cpp \
+                        src/core/main.cpp \
+						src/api/CommunicativeObject.cpp \
+						src/api/Plugin.cpp 
 
 AM_CPPFLAGS = $(LIBSIGC_CFLAGS) -fPIC -g
 cppPlugins_LDADD = $(LIBSIGC_LIBS) -ldl
@@ -360,19 +366,19 @@ ConcretePluginManager.obj: src/core/ConcretePluginManager.cpp
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o ConcretePluginManager.obj `if test -f 'src/core/ConcretePluginManager.cpp'; then $(CYGPATH_W) 'src/core/ConcretePluginManager.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/ConcretePluginManager.cpp'; fi`
 
-main.o: src/core/main/main.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.o -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.o `test -f 'src/core/main/main.cpp' || echo '$(srcdir)/'`src/core/main/main.cpp
+main.o: src/core/main.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.o -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.o `test -f 'src/core/main.cpp' || echo '$(srcdir)/'`src/core/main.cpp
 	$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
-#	source='src/core/main/main.cpp' object='main.o' libtool=no \
+#	source='src/core/main.cpp' object='main.o' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.o `test -f 'src/core/main/main.cpp' || echo '$(srcdir)/'`src/core/main/main.cpp
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.o `test -f 'src/core/main.cpp' || echo '$(srcdir)/'`src/core/main.cpp
 
-main.obj: src/core/main/main.cpp
-	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.obj -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.obj `if test -f 'src/core/main/main.cpp'; then $(CYGPATH_W) 'src/core/main/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/main/main.cpp'; fi`
+main.obj: src/core/main.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT main.obj -MD -MP -MF $(DEPDIR)/main.Tpo -c -o main.obj `if test -f 'src/core/main.cpp'; then $(CYGPATH_W) 'src/core/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/main.cpp'; fi`
 	$(am__mv) $(DEPDIR)/main.Tpo $(DEPDIR)/main.Po
-#	source='src/core/main/main.cpp' object='main.obj' libtool=no \
+#	source='src/core/main.cpp' object='main.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.obj `if test -f 'src/core/main/main.cpp'; then $(CYGPATH_W) 'src/core/main/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/main/main.cpp'; fi`
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.obj `if test -f 'src/core/main.cpp'; then $(CYGPATH_W) 'src/core/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/core/main.cpp'; fi`
 
 CommunicativeObject.o: src/api/CommunicativeObject.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT CommunicativeObject.o -MD -MP -MF $(DEPDIR)/CommunicativeObject.Tpo -c -o CommunicativeObject.o `test -f 'src/api/CommunicativeObject.cpp' || echo '$(srcdir)/'`src/api/CommunicativeObject.cpp
