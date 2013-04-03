@@ -11,7 +11,7 @@ class ITestPlugin : public Plugin
 public:
 	ITestPlugin(IApplication* app, std::string name) : Plugin(app, name, TOOL) {};
 
-	virtual void displayTestInformation()=0; 
+	virtual void displayTestInformation()=0;
 };
 
 #endif /* DEF_ITESTPLUGIN */

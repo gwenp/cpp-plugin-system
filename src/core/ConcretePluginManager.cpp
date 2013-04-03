@@ -25,16 +25,16 @@ std::pair<int,char**> ConcretePluginManager::getCommandLineArgs()
 
 bool ConcretePluginManager::loadPlugin( std::string file, std::string factory_function)
 {
-		Plugin* p = (Plugin*) loadObjectFromBinary(file,factory_function);
-		p->onLoad();
+	Plugin* p = (Plugin*) loadObjectFromBinary(file,factory_function);
+	p->onLoad();
 
-		if(p != NULL)
-		{
-			_plugins.push_back(p);
-			return true;
-		}
-		else
-			return false;
+	if(p != NULL)
+	{
+		_plugins.push_back(p);
+		return true;
+	}
+	else
+		return false;
 }
 
 std::vector<Plugin*> ConcretePluginManager::getPluginsByType ( PluginType plugintype )

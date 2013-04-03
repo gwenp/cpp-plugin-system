@@ -2,11 +2,14 @@
 #define DEF_PLUGIN
 
 
-enum PluginType { EXPORT, GUI, PARSER, GFXEMBED, GFX, TOOL, STRATEGY, PROJECTMANAGER };
+//TODO dynamise this shit
+enum PluginType { EXPORT, GUI, PARSER, GFXEMBED, GFX, TOOL, STRATEGY, PROJECTMANAGER, POLICY };
+
+#include "CommunicativeObject.hpp"
 
 #include <string>
 #include <iostream>
-#include "CommunicativeObject.hpp"
+#include <map>
 
 class IApplication;
 class PluginManager;
@@ -53,8 +56,11 @@ public:
 
 protected:
 private:
+	std::map<std::string, bool> _methods;
+
 	IApplication* _app;
 	PluginType _type;
+
 };
 
 
