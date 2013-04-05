@@ -23,6 +23,9 @@ configure
 depcomp
 install-sh
 missing
+autoscan.log
+config.status
 
+Makefile
 Makefile.in
 
