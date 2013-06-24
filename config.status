@@ -449,11 +449,11 @@ Copyright (C) 2010 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/home/gwen/Programmation/c++/cpp-plugin-system'
+ac_pwd='/home/gwen/Programmation/cpp/cpp-plugin-system'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
-AWK='gawk'
+AWK='mawk'
 test -n "$AWK" || AWK=awk
 # The default lists apply if the user does not specify any file.
 ac_need_defaults=:
@@ -635,6 +635,9 @@ S["AM_DEFAULT_VERBOSITY"]="0"
 S["AM_DEFAULT_V"]="$(AM_DEFAULT_VERBOSITY)"
 S["AM_V"]="$(V)"
 S["subdirs"]=" Plugins/ExtensionLoader Plugins/TestPlugin Plugins/LuaScriptingPlugin"
+S["EGREP"]="/bin/grep -E"
+S["GREP"]="/bin/grep"
+S["CPP"]="gcc -E"
 S["LIBSIGC_LIBS"]="-lsigc-2.0  "
 S["LIBSIGC_CFLAGS"]="-I/usr/include/sigc++-2.0 -I/usr/lib/x86_64-linux-gnu/sigc++-2.0/include  "
 S["PKG_CONFIG_LIBDIR"]=""
@@ -668,17 +671,17 @@ S["am__tar"]="$${TAR-tar} chof - \"$$tardir\""
 S["AMTAR"]="$${TAR-tar}"
 S["am__leading_dot"]="."
 S["SET_MAKE"]=""
-S["AWK"]="gawk"
+S["AWK"]="mawk"
 S["mkdir_p"]="/bin/mkdir -p"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]=""
-S["install_sh"]="${SHELL} /home/gwen/Programmation/c++/cpp-plugin-system/install-sh"
-S["MAKEINFO"]="${SHELL} /home/gwen/Programmation/c++/cpp-plugin-system/missing --run makeinfo"
-S["AUTOHEADER"]="${SHELL} /home/gwen/Programmation/c++/cpp-plugin-system/missing --run autoheader"
-S["AUTOMAKE"]="${SHELL} /home/gwen/Programmation/c++/cpp-plugin-system/missing --run automake-1.11"
-S["AUTOCONF"]="${SHELL} /home/gwen/Programmation/c++/cpp-plugin-system/missing --run autoconf"
-S["ACLOCAL"]="${SHELL} /home/gwen/Programmation/c++/cpp-plugin-system/missing --run aclocal-1.11"
+S["install_sh"]="${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/install-sh"
+S["MAKEINFO"]="${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run makeinfo"
+S["AUTOHEADER"]="${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run autoheader"
+S["AUTOMAKE"]="${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run automake-1.11"
+S["AUTOCONF"]="${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run autoconf"
+S["ACLOCAL"]="${SHELL} /home/gwen/Programmation/cpp/cpp-plugin-system/missing --run aclocal-1.11"
 S["VERSION"]="0.1"
 S["PACKAGE"]="cpp-plugin-system"
 S["CYGPATH_W"]="echo"
@@ -772,6 +775,18 @@ D["PACKAGE_STRING"]=" \"FULL-PACKAGE-NAME VERSION\""
 D["PACKAGE_BUGREPORT"]=" \"BUG-REPORT-ADDRESS\""
 D["PACKAGE_URL"]=" \"\""
 D["HAVE_LIBDL"]=" 1"
+D["STDC_HEADERS"]=" 1"
+D["HAVE_SYS_TYPES_H"]=" 1"
+D["HAVE_SYS_STAT_H"]=" 1"
+D["HAVE_STDLIB_H"]=" 1"
+D["HAVE_STRING_H"]=" 1"
+D["HAVE_MEMORY_H"]=" 1"
+D["HAVE_STRINGS_H"]=" 1"
+D["HAVE_INTTYPES_H"]=" 1"
+D["HAVE_STDINT_H"]=" 1"
+D["HAVE_UNISTD_H"]=" 1"
+D["HAVE_GL_GL_H"]=" 1"
+D["HAVE_GL_GLU_H"]=" 1"
   for (key in D) D_is_set[key] = 1
   FS = ""
 }
